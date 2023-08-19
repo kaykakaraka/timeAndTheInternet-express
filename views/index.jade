@@ -2,7 +2,26 @@ extends layout
 
 block content
   h1 Time and The Internet
-  p Welcome to 
+  button(type='submit') Change Title 
 
 
-script(src="public/homepage.js")
+  script
+    const titles = [
+      'Time and the Internet',
+      'Sandra has a girlfriend',
+      'How To Go Outside',
+      'Sudoku',
+      'The End'
+    ];
+
+    let count = 0
+    let title = titles[count]
+
+    const uiTitle = document.querySelector('h1');
+    const button = document.querySelector('button');
+    console.log('there is a button')
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      count += 1;
+      uiTitle.textContent = titles[count];
+    });
